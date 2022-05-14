@@ -40,6 +40,14 @@ async function run(){
            res.send(result);
        })
 
+       //delete
+       app.delete('/inventory/:id', async(req,res) => {
+           const id = req.params.id;
+           const query = {_id: ObjectId(id)};
+           const result = await inventoryCollection.deleteOne(query);
+           res.send(result);
+       })
+
       }
       finally{
 
